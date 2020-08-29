@@ -13,3 +13,10 @@ export const removeCard = (listID, cardID) => {
         payload: { listID, cardID }
     }
 }
+
+export const removeList = (listID) => {
+    return {
+        type: CONSTANTS.REMOVE_LIST,
+        payload: {listID}
+    }
+}

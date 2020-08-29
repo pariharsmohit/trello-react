@@ -4,38 +4,38 @@ let listID = 0;
 let cardID = 0;
 
 const initialState = [
-    {
-        title: "last episode",
-        id: `list-${0}`,
-        cards: [
-            {
-                id: `card-${0}`,
-                text: "we created a static list and a static card"
-            },
-            {
-                id: `card-${1}`,
-                text: "we used a mix between materila UI and React styled components"
-            }
-        ]
-    },
-    {
-        title: "This episode",
-        id: `list-${1}`,
-        cards: [
-            {
-                id: `card-${2}`,
-                text: "We will create our first reducer"
-            },
-            {
-                id: `card-${3}`,
-                text: "render many cards on our list with static data"
-            },
-            {
-                id: `card-${4}`,
-                text: "some little changes forgot in the previous list"
-            }
-        ]
-    }
+    // {
+    //     title: "last episode",
+    //     id: `list-${0}`,
+    //     cards: [
+    //         {
+    //             id: `card-${0}`,
+    //             text: "we created a static list and a static card"
+    //         },
+    //         {
+    //             id: `card-${1}`,
+    //             text: "we used a mix between materila UI and React styled components"
+    //         }
+    //     ]
+    // },
+    // {
+    //     title: "This episode",
+    //     id: `list-${1}`,
+    //     cards: [
+    //         {
+    //             id: `card-${2}`,
+    //             text: "We will create our first reducer"
+    //         },
+    //         {
+    //             id: `card-${3}`,
+    //             text: "render many cards on our list with static data"
+    //         },
+    //         {
+    //             id: `card-${4}`,
+    //             text: "some little changes forgot in the previous list"
+    //         }
+    //     ]
+    // }
 ];
 
 const listsReducer = (state = initialState, action) => {
@@ -83,13 +83,17 @@ const listsReducer = (state = initialState, action) => {
             return newState;
         }
 
+        case CONSTANTS.REMOVE_LIST: {
+            const newState = state.filter(list => list.id !== action.payload.listID);
+            return newState;
+            }
+
         case CONSTANTS.DRAG_HAPPENED:
             const {
                 droppableIdStart,
                 droppableIdEnd,
                 droppableIndexStart,
                 droppableIndexEnd,
-                draggableId,
                 type
             } = action.payload;
 
