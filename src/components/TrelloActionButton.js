@@ -4,7 +4,7 @@ import Textarea from 'react-textarea-autosize';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-import { addList, addCard } from '../actions';
+import { addList, addCard, removeCard } from '../actions';
 
 class TrelloActionButton extends Component {
     state = {
@@ -51,6 +51,13 @@ class TrelloActionButton extends Component {
             });
             dispatch(addCard(listID, text));
         }
+        return;
+    }
+
+    handleRemoveCard = () => {
+        const { dispatch, listID, cardID } = this.props;
+        dispatch(removeCard(listID, cardID));
+
         return;
     }
 
@@ -140,10 +147,10 @@ class TrelloActionButton extends Component {
                         }}>
                         {buttonTitle} {" "}
                     </Button>
-                    <Icon style={{
+                    {/* <Icon style={{
                         marginLeft: 8,
                         cursor: "pointer",
-                    }}>close</Icon>
+                    }}>close</Icon> */}
                 </div>
             </div>
         );
