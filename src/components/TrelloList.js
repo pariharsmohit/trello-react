@@ -10,7 +10,7 @@ import {removeList } from '../actions';
 const ListContainer = styled.div`
     background-color: #dfe3e6;
     border-radius: 3px;
-    width: 300px;
+    width: 280px;
     padding: 5px;
     height: 100%;
     margin: 5px;
